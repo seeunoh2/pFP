@@ -66,11 +66,11 @@ for fold in range(n_fold):
     # Building convolutional network
     tf.reset_default_graph()
     network = input_data(shape=[None, 1, dim, 1], name='input')
-    network = conv_2d(network, 128, 12, activation='relu', regularizer="L2")
+    network = conv_2d(network, 128, (1,12), activation='relu', regularizer="L2")
     network = max_pool_2d(network, 10)
     network = local_response_normalization(network)
 
-    network = conv_2d(network, 128, 12, activation='relu', regularizer="L2")
+    network = conv_2d(network, 128, (1,12), activation='relu', regularizer="L2")
     network = max_pool_2d(network, 10)
     network = local_response_normalization(network)
 
